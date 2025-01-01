@@ -1,11 +1,27 @@
-## vprofile Backend (MySQL, Memcached, RabbitMQ) security group
+# IAM User and Role creation
 
-Create Security group named vprofile-backend-sg
+## IAM User creation steps
+ ![IAM-creation-console](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/IAM-first.png)
+ 
+ ![IAM-creation-console](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/IAM-second.png)
 
- ![Backend Security group](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/vprofile-backend-sg-first.png)
+ ![IAM-creation-console](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/IAM-third.png)
+ 
+ ![IAM-creation-console](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/IAM-fourth.png)
 
-Allows traffic from app(Tomcat) Instance to MySQL(3306), Memcached(11211), RabbitMQ(5672) Instances, and allows SSH(22) using local system IP.
+ ![IAM-creation-console](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/IAM-fifth.png)
+ 
+ ![IAM-creation-console](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/IAM-sixth.png)
 
-And allow all backend instances to communicate with each other, by providing own security group to itself.
+ ## IAM Role creation steps
 
- ![Backend Security group](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/vprofile-backend-sg-second.png)
+ ![IAM-creation-console](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/IAM-seventh.png)
+ 
+ ![IAM-creation-console](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/IAM-eighth.png)
+
+ ![IAM-creation-console](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/IAM--nineth.png)
+ 
+ ## Modifying IAM Role in app01 EC2 Instance
+ ![IAM-creation-console](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/IAM-tenth.png)
+
+ ![IAM-creation-console](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/IAM-eleventh.png)
