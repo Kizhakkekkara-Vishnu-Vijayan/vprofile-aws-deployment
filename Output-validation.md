@@ -1,39 +1,50 @@
-# Auto Scalling Group configuration
+# Output Validation for the Project.
+1. http connection
+2. https connection
 
-For creating ASG we need to create the following 
-1. AMI 
-2. Launch Template 
-3. Auto Scaling Groups
+- For http connection copy and paste the LoadBalancer DNS Name in Browser.
+![http-validation](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/validation-first.png)
+![http-validation](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/validation-second.png)
 
-## AMI creation steps :
-![AMI creation](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/asg-first.png)
-![AMI creation](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/asg-second.png)
-![AMI creation](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/asg-third.png)
+- For https secure connection copy and paste the Record Name from Public Hosted zone of Route 53.
+![https-validation](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/validation-third.png)
 
-## Launch Template creation steps :
-![Launch Template](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/asg-fourth.png)
-![Launch Template](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/asg-fifth.png)
-![Launch Template](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/asg-sixth.png)
-![Launch Template](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/asg-seventh.png)
-![Launch Template](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/asg-eighth.png)
+Enter the following URL in the browser: 
+> https://vprofileapp.southlake.xyz
 
-## ASG creation steps :
-![Launch Template](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/asg-nineth.png)
-![Launch Template](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/asg-tenth.png)
-![Launch Template](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/asg-eleventh.png)
-![Launch Template](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/asg-twelfth.png)
-![Launch Template](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/asg-thirteenth.png)
-![Launch Template](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/asg-fourteenth.png)
-![Launch Template](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/asg-fifteenth.png)
+![https-validation](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/validation-fourth.png)
 
-- Enable stickiness in Target group so that the LoadBalancer's cookie is used whenever the user is loggin in.
-- This is specific to vprofile project since only the app01 is configured to authenticate the user.
-- So when enabled stickiness the ELB will forward the traffic to app01 instance only.
+This shows that the website is deployed by a valid https certificate holder. Which gives the user a sense of security while accessing the webpage. Since the data is passed through the browser in an encrypted way, to prevent any data breaches.
 
-![Launch Template](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/asg-sixteenth.png)
+![https-validation](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/validation-fifth.png)
 
-Health check status for EC2 instance created by Target Group i.e vprofile-app. 
-![Launch Template](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/asg-seventeenth.png)
+Username and password to login :
+> admin_vp
 
-You can see that the vprofile-app EC2 Instance is created automatically with the help of ELB.
-![Launch Template](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/asg-eighteenth.png)
+If you logged in successfully, then it means the MySQL connection is working properly.
+![https-validation](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/validation-sixth.png)
+
+Then click on All Users button
+![https-validation](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/validation-seventh.png)
+
+Click on User Id 4 for testing
+![https-validation](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/validation-eighth.png)
+
+Data of User Id 4 is retrieved from Database
+![https-validation](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/validation-nineth.png)
+
+Now again click on the same User Id for testing Memcached service
+![https-validation](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/validation-tenth.png)
+
+Now it can be seen that the data is been retrieved from cache Memory, instead of database, this helps to reduce the load of database by storing already accessed data to Cache Memory.
+
+![https-validation](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/validation-eleventh.png)
+
+For verifying RabbitMQ service 
+![https-validation](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/validation-twelfth.png)
+
+It can be seen that the queue is generated successfully
+![https-validation](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/validation-thirteenth.png)
+
+Following is the reference for [CloudStack-VProfile](https://github.com/Kizhakkekkara-Vishnu-Vijayan/CloudStack-VProfile.git "Github Link") project were the same deployment is done in local machine using virtual machines, and automating the virtual machine creation using Vagrant.
+This can act as a good foundation for learning deployment in AWS cloud. 
