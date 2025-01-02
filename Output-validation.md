@@ -45,6 +45,6 @@ For verifying RabbitMQ service
 
 It can be seen that the queue is generated successfully
 ![https-validation](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/validation-thirteenth.png)
-
+---
 Following is the reference for [CloudStack-VProfile](https://github.com/Kizhakkekkara-Vishnu-Vijayan/CloudStack-VProfile.git "Github Link") project were the same deployment is done in local machine using virtual machines, and automating the virtual machine creation using Vagrant.
 This can act as a good foundation for learning deployment in AWS cloud. 
