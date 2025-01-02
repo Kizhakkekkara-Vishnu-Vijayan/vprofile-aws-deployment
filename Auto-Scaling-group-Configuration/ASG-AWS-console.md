@@ -1,27 +1,39 @@
-# Route 53 Private Hosted zone
+# Auto Scalling Group configuration
 
-- This private hosted zone is used to resolve internal conflict, and convert the Private IP addresses of the backend EC2 Instances to domain name. 
-- So that the app(Tomcat) server can communicate with backend services using domain name. 
-- This is useful, since the private IP address of the instance changes when its terminated and launced again. 
-- So, if IP address is mapped with domain name, then the changed private IP address is automatically updated. 
-- Which can reduce the interaction with application.properties configuration file.
+For creating ASG we need to create the following 
+1. AMI 
+2. Launch Template 
+3. Auto Scaling Groups
 
- ![Private-route](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/Private-route-first.png)
+## AMI creation steps :
+![AMI creation](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/asg-first.png)
+![AMI creation](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/asg-second.png)
+![AMI creation](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/asg-third.png)
 
- Select the Region in which your EC2 Instance is launched. In my case, it is Stockholm. Then click on create hosted zone.
+## Launch Template creation steps :
+![Launch Template](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/asg-fourth.png)
+![Launch Template](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/asg-fifth.png)
+![Launch Template](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/asg-sixth.png)
+![Launch Template](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/asg-seventh.png)
+![Launch Template](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/asg-eighth.png)
 
- ![Private-route](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/Private-route-second.png)
+## ASG creation steps :
+![Launch Template](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/asg-nineth.png)
+![Launch Template](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/asg-tenth.png)
+![Launch Template](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/asg-eleventh.png)
+![Launch Template](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/asg-twelfth.png)
+![Launch Template](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/asg-thirteenth.png)
+![Launch Template](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/asg-fourteenth.png)
+![Launch Template](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/asg-fifteenth.png)
 
- Click on your create hosted zone i.e vprofile.in and then click on create record.
- 
- Record for MySQL(db01) EC2 Instance
+- Enable stickiness in Target group so that the LoadBalancer's cookie is used whenever the user is loggin in.
+- This is specific to vprofile project since only the app01 is configured to authenticate the user.
+- So when enabled stickiness the ELB will forward the traffic to app01 instance only.
 
- ![Private-route](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/Private-route-third.png)
+![Launch Template](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/asg-sixteenth.png)
 
-  Record for Memcached(mc01) EC2 Instance
+Health check status for EC2 instance created by Target Group i.e vprofile-app. 
+![Launch Template](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/asg-seventeenth.png)
 
- ![Private-route](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/Private-route-fourth.png)
-
- Record for RabbitMQ(rmq01) EC2 Instance
-
- ![Private-route](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/Private-route-fifth.png)
+You can see that the vprofile-app EC2 Instance is created automatically with the help of ELB.
+![Launch Template](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/blob/master/AWS-Console-SS-All/asg-eighteenth.png)
