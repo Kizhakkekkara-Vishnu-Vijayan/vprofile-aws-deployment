@@ -45,4 +45,103 @@ To get started with VPROFILE AWS Deployment Project you need to have basic famil
  ## Project flow diagram
  ![Project flow diagram](https://github.com/Kizhakkekkara-Vishnu-Vijayan/Sample/blob/master/AWS-images/Flow-diagram.png)
 
+## Project Flow execution steps :
+1. Login to AWS Account
+2. Create Key Pairs
+3. Create Security Groups
+
+[AWS-Security-groups](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/tree/master/AWS-Security-groups)
+```
+├───AWS-Security-groups
+│   ├───vprofile-app
+│   │   └───vprofile-app-sg.md
+│   ├───vprofile-backend
+│   │   └───vprofile-backend-sg.md
+│   └───vprofile-ELB
+│       └───vprofile-ELB-sg.md
+```
+ 4. Launch Instances with user data [BASH SCRIPTS]
+
+[Deployment-Scripts](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/tree/master/Deployment-Scripts)
+
+```
+├───Deployment-Scripts
+│   ├───memcache.sh
+│   ├───mysql.sh
+│   ├───rabbitmq.sh
+│   └───tomcat_ubuntu.sh
+```
+ 5. Update IP to name mapping in route 53
+
+[Route-53-setup](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/tree/master/Route-53-setup)
+
+```
+├───Route-53-setup
+│   ├───Private-Route
+│   │   └───Private-Route-config.md
+```
+ 6. Build Application from source code
+ 7. Upload to S3 bucket
+ 8. Download Artifact to Tomcat EC2 Instance
+
+ [Build-Deploy-Artifacts](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/tree/master/Build-Deploy-Artifacts)
+
+ ```
+ ├───Build-Deploy-Artifacts
+│   ├───AWS-IAM-console.md
+│   ├───AWS-S3-console.md
+│   ├───Maven-Build.md
+│   └───README.md
+```
+9. Setup ELB and HTTPS [Certificate from ACM]
+
+[Load-Balancer](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/tree/master/Load-Balancer-Configuration)
+[Route-53-setup](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/tree/master/Route-53-setup)
+
+```
+├───Load-Balancer-Configuration
+│   ├───ELB-console.md
+├───Route-53-setup
+│   ├───Public-Route
+│   │   └───ACM-console.md
+```
+10. Map ELB Endpoint to website name in Godaddy-DNS/Route53
+
+[Route-53-setup](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/tree/master/Route-53-setup)
+
+```
+├───Route-53-setup
+│   ├───Public-Route
+│   │   └───Public-Route-config.md
+```
+11. Build Autoscaling Group for Tomcat Instances
+
+[Auto-Scaling-group-Configuration](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/tree/master/Auto-Scaling-group-Configuration)
+
+```
+├───Auto-Scaling-group-Configuration
+│   ├───ASG-AWS-console.md
+```
+
+12. Verify
+
+[Output-validation](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/tree/master/Output-validation.md)
+
+```
+├───Output-validation.md
+```
+13. AWS Cost Incured during project implementation
+
+[AWS-Billing](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/tree/master/AWS-Billing.md)
+
+```
+├───AWS-Billing.md
+```
+14. General Description of the Project
+
+[README](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/tree/master/README.md)
+
+```
+├───README.md
+```
  
