@@ -137,11 +137,4 @@ To get started with VPROFILE AWS Deployment Project you need to have basic famil
 ```
 ├───AWS-Billing.md
 ```
-14. General Description of the Project
 
-[README](https://github.com/Kizhakkekkara-Vishnu-Vijayan/vprofile-aws-deployment/tree/master/README.md)
-
-```
-├───README.md
-```
- 
